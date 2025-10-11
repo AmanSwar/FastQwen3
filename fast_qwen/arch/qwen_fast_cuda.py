@@ -260,7 +260,7 @@ class Transformer(nn.Module):
         return x
 
 
-class Qwen3(nn.Module):
+class FastQwen3(nn.Module):
 
     def __init__(self, cfg: QwenConfig_float16):
 
@@ -439,7 +439,7 @@ if __name__ == "__main__":
 
     # weights_dict = load_file(single_file_path)
     config = QwenConfig_float16()
-    model = Qwen3(config).to(device)
+    model = FastQwen3(config).to(device)
     # load_weights_qwen(model, config, weights_dict)
     tokenizer_file_path = "/home/aman/code/model_go_brr/Qwen3-0.6B/tokenizer.json"
 
