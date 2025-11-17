@@ -23,10 +23,10 @@ FastQwen3 provides significant performance improvements over the standard PyTorc
 Here are some performance benchmarks for the FastQwen2 model.
 
 ### Performance Analysis
-![Performance Analysis](assets/fastqwen2_perfanal.png)
+![Performance Analysis](assets/fastqwen3_perfanal.png)
 
 ### Scaling
-![Scaling](assets/fastqwen2_scaling.png)
+![Scaling](assets/fastqwen3_scaling.png)
 
 ## Installation
 
