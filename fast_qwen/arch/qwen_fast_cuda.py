@@ -43,7 +43,8 @@ class KVCache:
 
         self.dtype = dtype
         self.device = device
-
+        
+        #allocate maximum possiblem K and V tensor size cache -> max_seq_len
         self.k_cache = torch.zeros(
             (1, n_kv_heads, max_seq_len, head_dim), dtype=dtype, device=device
         )
@@ -56,12 +57,16 @@ class KVCache:
         self, k: torch.Tensor, v: torch.Tensor
     ) -> Tuple[torch.Tensor, torch.Tensor]:
 
+        #we just need to put the new K and V values in the right position
+        # right position -> current_cache_len + seq_len
+        
         batch_size, n_heads, seq_len, head_dim = k.shape
-
         end_pos = self.cache_len + seq_len
+
         self.k_cache[:, :, self.cache_len : end_pos] = k
         self.v_cache[:, :, self.cache_len : end_pos] = v
-
+        
+        #update the cache_len += seq_len / = end_pos
         self.cache_len = end_pos
 
         return (
@@ -72,7 +77,6 @@ class KVCache:
     def reset(self):
 
         self.cache_len = 0
-
         self.k_cache.zero_()
         self.v_cache.zero_()
 
