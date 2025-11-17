@@ -1,0 +1,4 @@
+model.safetensors
+.venv/
+build/
+*.so
