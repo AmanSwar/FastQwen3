@@ -162,18 +162,18 @@ def load_weights_fastqwen(model, param_config, params: dict):
             f"model.layers.{l}.input_layernorm.weight",
         )
 
-        block.ffn.linear_layer1 = assign(
-            block.ffn.linear_layer1,
+        block.ffn.linear_layer1.weight = assign(
+            block.ffn.linear_layer1.weight,
             params[f"model.layers.{l}.mlp.gate_proj.weight"],
             f"model.layers.{l}.mlp.gate_proj.weight",
         )
-        block.ffn.linear_layerP = assign(
-            block.ffn.linear_layerP,
+        block.ffn.linear_layerP.weight = assign(
+            block.ffn.linear_layerP.weight,
             params[f"model.layers.{l}.mlp.up_proj.weight"],
             f"model.layers.{l}.mlp.up_proj.weight",
         )
-        block.ffn.linear_layer2 = assign(
-            block.ffn.linear_layer2,
+        block.ffn.linear_layer2.weight = assign(
+            block.ffn.linear_layer2.weight,
             params[f"model.layers.{l}.mlp.down_proj.weight"],
             f"model.layers.{l}.mlp.down_proj.weight",
         )
