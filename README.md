@@ -1,4 +1,5 @@
 # FastQwen3
+## Blog Post Link : [Making Qwen3 go Brrr from First Principles](https://substack.com/@amanswar/p-182157306)
 
 This repository contains a custom implementation of the Qwen3 language model, optimized for high-performance inference. It leverages custom CUDA kernels and FlashAttention to achieve significant speedups over the baseline Hugging Face implementation.
 
